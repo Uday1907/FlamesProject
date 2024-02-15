@@ -1,0 +1,33 @@
+
+<script typr="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+    document.querySelector('#submitB').disabled=true;
+    document.querySelector('#secondN').onkeyup=()=>{
+        if(document.querySelector('#secondN').value.length>0&& document.querySelector('#firstN').value.length>0 ){
+            document.querySelector('#submitB').disabled=false;
+        }
+        else{
+            document.querySelector('#submitB').disabled=true;
+        }
+    }
+    document.querySelector('#firstN').onkeyup=()=>{
+        if(document.querySelector('#firstN').value.length>0&& document.querySelector('#secondN').value.length>0 ){
+            document.querySelector('#submitB').disabled=false;
+        }
+        else{
+            document.querySelector('#submitB').disabled=true;
+       
+             }
+    }
+    const btne=document.querySelector('#submitB');
+    btne.addEventListener('mouseover',(event)=>{
+        const x=(event.pageX-btne.offsetLeft);
+        const y=(event.pageY-btne.offsetTop);
+        btne.style.setProperty("--xpos",x+"px");
+        btne.style.setProperty("--ypos",y+"px");
+    })
+    })
+</script>
+</body>
+
+</html>

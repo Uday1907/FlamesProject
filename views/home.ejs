@@ -1,0 +1,33 @@
+<%- include('header') -%>
+<div class="form-div">
+<form action="/" method="post">
+    <div>
+    <label for="firstN">First Name: </label>
+    </div>
+    <div>
+    <input  class="form-control"type="text" id="firstN" name="firstN"  placeholder="First Name" autofocus>
+    </div>
+    <div>
+    <label for="SecondN">Second Name: </label>
+    </div>
+    <div>
+    <input class="form-control" type="text" id="secondN" name="secondN"  placeholder="Second Name">
+    </div>
+<div class="button-padding"></div>
+<div>
+    <button  id="submitB" type="submit" ><span>Submit</span></button>
+</div>
+
+</form>
+</div>
+</div>
+<div class="result-c">
+<h1><%= flamesAnswer %></h1>
+</div>
+<div class="image-c">
+    <img src= <%= imageName %> alt="image" />
+</div>
+
+
+
+<%- include('footer') -%>
