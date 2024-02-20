@@ -7,11 +7,7 @@ const { JSDOM } = jsdom;
 const pg =require('pg');
 
 const db=new pg.Client({
-    user:"postgres",
-    host:"localhost",
-    database:"flames",
-    password:"Udayvinay@098",
-    port: 5432,
+    connectionString: process.env.POSTGRESQL_EXTERNAL_URL,
 });
 
 db.connect();
@@ -54,6 +50,6 @@ app.post('/',async function(req,res){
 
 
 
-app.listen('3000',function(){
+app.listen(3000,function(){
     console.log("Server is Ready!");
 })
