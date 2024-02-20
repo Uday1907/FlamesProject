@@ -19,6 +19,7 @@ let name2="";
 let answer="START";
 let answerImage="/images/"+answer+".png";
 let use=1;
+const port = process.env.PORT || 3000;
 const app=express();
 
 app.use(bodyParser.urlencoded({extended:true}));
