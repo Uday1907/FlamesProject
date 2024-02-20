@@ -26,7 +26,7 @@ let n1=name1;
         if(arr2[i]!='*'&& arr2[i]!=' ')
             count++;
     }
-    console.log(count);
+    // console.log(count);
 class Clist{
     constructor(){
         this.length=0;
@@ -70,7 +70,7 @@ class Clist{
                 this.last=prenode;
             }
             prenode.next=cnode.next;
-            console.log('removed: '+cnode.element);
+            // console.log('removed: '+cnode.element);
         }
     }
     this.cc=function(k){
@@ -90,10 +90,10 @@ class Clist{
     this.display=function(){
         let cnode=this.first;
         while(cnode.next!=this.first){
-            console.log(cnode.element);
+            // console.log(cnode.element);
             cnode=cnode.next;
         }
-        console.log(cnode.element);
+        // console.log(cnode.element);
     }
 }
 }
