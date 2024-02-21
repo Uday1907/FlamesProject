@@ -7,7 +7,8 @@ const { JSDOM } = jsdom;
 const pg =require('pg');
 
 const db=new pg.Client({
-    connectionString: process.env.POSTGRESQL_EXTERNAL_URL,
+    
+     connectionString: process.env.POSTGRESQL_EXTERNAL_URL,
 });
 
 db.connect();
