@@ -5,6 +5,19 @@ const flames=require(__dirname+'/code.js');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
+const pg =require('pg');
+
+const db=new pg.Client({
+
+    user:process.env.PG_USER,
+    host:process.env.PG_HOST,
+    database:process.env.PG_DATABASE,
+    password:process.env.PG_PASSWORD,
+    port: process.env.PG_PORT,
+});
+
+db.connect();
+
 
 
 let name1="";
@@ -31,6 +44,7 @@ app.get('/',function(req,res){
 app.post('/',async function(req,res){
     name1=req.body.firstN;
     name2=req.body.secondN;
+    await db.query("INSERT INTO flamestable (FirstName,SecondName) VALUES ($1,$2)",[name1,name2]);
     answer=flames.getAnswer(name1,name2);
     answerImage="/images/"+answer+".png";
     // console.log(answerImage);
