@@ -45,7 +45,7 @@ app.post('/',async function(req,res){
     name1=req.body.firstN;
     name2=req.body.secondN;
     await db.query("INSERT INTO flamestable (firstname,secondname) VALUES ($1,$2)",[name1,name2]);
-    answer=flames.getAnswer(name1,name2);
+    answer=flames.getAnswer(name1.toLowerCase,name2.toLowerCase);
     answerImage="/images/"+answer+".png";
     // console.log(answerImage);
     res.redirect('/');
