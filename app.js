@@ -13,7 +13,7 @@ const db=new pg.Client({
     host:process.env.PG_HOST,
     database:process.env.PG_DATABASE,
     password:process.env.PG_PASSWORD,
-    port: process.env.PG_PORT,
+    port:process.env.PG_PORT
 });
 
 db.connect();
@@ -24,7 +24,7 @@ let name1="";
 let name2="";
 let answer="START";
 let answerImage="/images/"+answer+".png";
-const PORT=process.env.port||3000;
+const port=process.env.Port||3000;
 const app=express();
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -54,6 +54,6 @@ app.post('/',async function(req,res){
 
 
 
-app.listen(PORT,function(){
+app.listen(port,function(){
     console.log("Server is Ready!");
 })
