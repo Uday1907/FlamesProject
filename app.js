@@ -4,18 +4,6 @@ const flames = require(__dirname + '/code.js');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const pg = require('pg');
-
-// Database connection
-const db = new pg.Client({
-    user: process.env.RENDER_PG_USER,
-    host: process.env.RENDER_PG_HOST,
-    database: process.env.RENDER_PG_DATABASE,
-    password: process.env.RENDER_PG_PASSWORD,
-    port: process.env.RENDER_PG_PORT,
-});
-
-db.connect();
-
 let name1 = "";
 let name2 = "";
 let answer = "START";
@@ -39,9 +27,6 @@ app.get('/', function (req, res) {
 app.post('/', async function (req, res) {
     name1 = req.body.firstN;
     name2 = req.body.secondN;
-
-    // Insert into database
-    await db.query("INSERT INTO flamestable (firstname, secondname) VALUES ($1, $2)", [name1, name2]);
 
     answer = flames.getAnswer(name1.toLowerCase(), name2.toLowerCase());
     answerImage = "/images/" + answer + ".png";
